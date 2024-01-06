@@ -12,9 +12,13 @@ def main():
     data = load_data()
     if st.button("Submit"):
         with st.spinner("Processing"):
-            st.write(data.columns)
+            # st.write(data.columns)
+            st.write(data)
             st.subheader("Check for uniqueness")
             st.write(data.expect_column_values_to_be_unique(column="ID"))
+            st.subheader("Check for integrity")
+            activity = ["Summer","Winter"]
+            
 
 
 if __name__ == "__main__":
