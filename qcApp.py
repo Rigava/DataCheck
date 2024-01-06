@@ -7,7 +7,7 @@ def load_data():
     df = ge.read_csv(upload)
     return df
 def main():
-    st.title("Test youre expectation by JOSH@I")
+    st.title("Test your data expectation by JOSH@I")
     st.subheader("Garbage In Garbage Out")
     data = load_data()
     if st.button("Submit"):
@@ -18,7 +18,10 @@ def main():
             st.write(data.expect_column_values_to_be_unique(column="ID"))
             st.subheader("Check for integrity")
             activity = ["Summer","Winter"]
-            
+            st.write(data.expect_column_values_to_be_in_set('Season',value_set = activity))
+            st.subheader("Check for accuracy")
+            st.write(data.expect_column_values_to_be_between('Weight',0,500))
+
 
 
 if __name__ == "__main__":
